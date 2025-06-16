@@ -1,18 +1,14 @@
-// Espera o DOM carregar
-document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById('formMedia').addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o envio do formulário
+function calcularNota() {
+  let nota1 = parseFloat(prompt("Digite a primeira nota:")); //declara a variavel e os nomes e coloca um texto dentro dela
+  let nota2 = parseFloat(prompt("Digite a segunda nota:"));
 
-        // Pegando os valores dos inputs
-        let nota1 = parseFloat(document.getElementById('nota1').value);
-        let nota2 = parseFloat(document.getElementById('nota2').value);
+  let notaFinal = nota1 + nota2;  // Aqui faz o calculo das duas notas declaradas
 
-        // Validação
-        if (isNaN(nota1) || isNaN(nota2)) {
-          alert('Por favor, digite duas notas válidas.');
-        } else {
-          let media = (nota1 + nota2) / 2;
-          alert('A média é: ' + media.toFixed(1));
-        }
-      });
-    });
+  alert("NOTA FINAL = " + notaFinal.toFixed(1));   // Mostra um alerta com o texto "NOTA FINAL =" e a nota formatada com 1 casa decimal
+
+  if (notaFinal < 60.0) {       // Se a nota final for menor que 60.0, mostra que o aluno foi reprovado
+    alert("REPROVADO");
+  }
+}
+
+calcularNota(); // Chama a função para ela rodar assim que o código for executado
